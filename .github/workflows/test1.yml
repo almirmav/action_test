@@ -43,4 +43,4 @@ jobs:
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -H "Content-Type: application/octet-stream" \
             --data-binary @output.log \
-            "https://api.github.com/repos/almirmav/action_test/contents/logs/output.log?ref=$COMMIT_SHA"  
+            "output.log?ref=$COMMIT_SHA"  
