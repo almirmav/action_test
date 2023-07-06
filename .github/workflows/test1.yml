@@ -35,7 +35,7 @@ jobs:
         
       - name: Save Log File
         run: |
-          FILE_PATH="logs/log.txt"
+          FILE_PATH="log.txt"
           COMMIT_SHA=$(git rev-parse HEAD)
           API_URL="https://api.github.com/repos/almirmav/action_test/contents/"
           AUTH_HEADER="Authorization: token ${{ secrets.GITHUB_TOKEN }}"
