@@ -31,7 +31,9 @@ jobs:
           pip install -r requirements.txt  # Replace with your dependencies installation command
 
       - name: Run Python script
-        run: python script.py >> log.txt  # Replace with the path to your Python script
+        run: |
+          echo "$PWD"
+          python script.py >> log.txt  # Replace with the path to your Python script
         
       - name: Save Log File
         run: |
