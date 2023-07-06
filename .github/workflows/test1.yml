@@ -46,4 +46,4 @@ jobs:
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -H "Accept: application/vnd.github.v3+json" \
             -d "{\"message\": \"Add log file\", \"content\": \"$LOG_CONTENT\"}" \
-            "https://api.github.com/repos/{owner}/{repo}/contents/logs/log.txt?ref=$COMMIT_SHA"
+            "https://api.github.com/repos/{owner}/{repo}/contents/log.txt?ref=$COMMIT_SHA"
