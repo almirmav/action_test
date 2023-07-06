@@ -35,18 +35,25 @@ jobs:
           echo "$PWD"
           python script.py >> log.txt  # Replace with the path to your Python script
           ls
+          
+      - name: Upload Log File as Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: log-file
+          path: log.txt
+          
         
-      - name: Save Log File
-        run: |
-          # Get the latest commit SHA
-          COMMIT_SHA=$(git rev-parse HEAD)
+#       - name: Save Log File
+#         run: |
+#           # Get the latest commit SHA
+#           COMMIT_SHA=$(git rev-parse HEAD)
 
-          # Read the log file content
-          LOG_CONTENT=$(cat log.txt)
+#           # Read the log file content
+#           LOG_CONTENT=$(cat log.txt)
 
-          # Create the log file in the repository
-          curl -X PUT \
-            -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-            -H "Accept: application/vnd.github.v3+json" \
-            -d "{\"message\": \"Add log file\", \"content\": \"$LOG_CONTENT\"}" \
-            "https://api.github.com/repos/{owner}/{repo}/contents/log.txt?ref=$COMMIT_SHA"
+#           # Create the log file in the repository
+#           curl -X PUT \
+#             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+#             -H "Accept: application/vnd.github.v3+json" \
+#             -d "{\"message\": \"Add log file\", \"content\": \"$LOG_CONTENT\"}" \
+#             "https://api.github.com/repos/{owner}/{repo}/contents/log.txt?ref=$COMMIT_SHA"
