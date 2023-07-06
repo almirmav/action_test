@@ -31,7 +31,7 @@ jobs:
           pip install -r requirements.txt  # Replace with your dependencies installation command
 
       - name: Run Python script
-        run: python script.py >> output.log  # Replace with the path to your Python script
+        run: python script.py >> log.txt  # Replace with the path to your Python script
         
       - name: Save Log File
         run: |
@@ -42,5 +42,5 @@ jobs:
           curl -X PUT \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
             -H "Content-Type: application/octet-stream" \
-            --data-binary @output.log \
-            "output.log?ref=$COMMIT_SHA"  
+            --data-binary @log.txt \
+            "https://api.github.com/repos/almirmav/action_test/contents/log.txt?ref=$COMMIT_SHA"
