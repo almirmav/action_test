@@ -34,6 +34,7 @@ jobs:
         run: |
           echo "$PWD"
           python script.py >> log.txt  # Replace with the path to your Python script
+          echo "$LS"
         
       - name: Save Log File
         run: |
