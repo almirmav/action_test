@@ -14,12 +14,16 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        branch: [main, dev]
+        project: [main, dev]
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
+      
       - name: Set up Python
         uses: actions/setup-python@v3
         with:
@@ -44,7 +48,7 @@ jobs:
           
       - name: run command
         run: |
-          echo "My Variable: ${{ env.project }}"
+          echo "My Variable: ${{ matrix.project }}"
 #       - name: Save Log File
 #         run: |
 #           # Get the latest commit SHA
