@@ -42,7 +42,9 @@ jobs:
           name: log-file
           path: log.txt
           
-        
+      - name: run command
+        run: |
+          echo env.project    
 #       - name: Save Log File
 #         run: |
 #           # Get the latest commit SHA
