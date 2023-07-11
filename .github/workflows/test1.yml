@@ -44,7 +44,7 @@ jobs:
           
       - name: run command
         run: |
-          echo env.project    
+          echo "My Variable: ${{ env.project }}"
 #       - name: Save Log File
 #         run: |
 #           # Get the latest commit SHA
